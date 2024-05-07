@@ -1,0 +1,26 @@
+import antiguedades.*
+
+test "Los metodos de la casa de antiguedades funcionan corresctamente" {
+	
+	casaDeAntiguedades.adquirir(antiguedad1)
+	casaDeAntiguedades.adquirir(antiguedad2)
+	casaDeAntiguedades.adquirir(antiguedad3)
+	casaDeAntiguedades.adquirir(antiguedad4)
+	casaDeAntiguedades.adquirir(antiguedad5)
+	casaDeAntiguedades.adquirirLoteDe([antiguedad3, antiguedad4])
+	assert.that(casaDeAntiguedades.enStock())
+	assert.equals(7, casaDeAntiguedades.cantidadDeAntiguedades())
+	assert.equals(antiguedad4, casaDeAntiguedades.ultimaAntiguedadAdquirida())
+	assert.notThat(casaDeAntiguedades.esMuyAntigua(antiguedad1))
+	assert.equals(80, casaDeAntiguedades.calcularAnios(5))
+	casaDeAntiguedades.restaurarPrimeraAntiguedad()
+	casaDeAntiguedades.restaurarUltimaAntiguedad()
+	casaDeAntiguedades.restaurarAntiguedad(1)
+	casaDeAntiguedades.restaurar(antiguedad5)
+	assert.that(antiguedad1.estaEnBuenEstado())
+	assert.that(antiguedad4.estaEnBuenEstado())
+	assert.that(antiguedad2.estaEnBuenEstado())
+	assert.that(antiguedad5.estaEnBuenEstado())
+	casaDeAntiguedades.venderAntiguedades()
+	assert.equals(0, casaDeAntiguedades.cantidadDeAntiguedades())
+}
